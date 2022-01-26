@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aksel Allas&#39; blog</title>
-    <link>https://akselallas.xyz/</link>
-    <description>Recent content on Aksel Allas&#39; blog</description>
+    <title>adrs on Aksel Allas&#39; blog</title>
+    <link>https://akselallas.xyz/tags/adrs/</link>
+    <description>Recent content in adrs on Aksel Allas&#39; blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Jan 2022 13:51:15 +0200</lastBuildDate>
     
-	<atom:link href="https://akselallas.xyz/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://akselallas.xyz/tags/adrs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,17 +18,6 @@
       
       <guid>https://akselallas.xyz/posts/first-blog-post/</guid>
       <description>Places for writing that I considered were:  Jekyll  Found via this HN post (which also inspired me to start blogging) I don&amp;rsquo;t have any experience with Ruby At time of writing has 44k stars on github  &amp;ldquo;jekyll is useful for people used to php world&amp;rdquo; -JC 2022     Wordpress  Clunky and not customizable enough for me My wife writes a wordpress blog in estonian about books ;)   Medium  Allows you to earn money by writing Paywalls your posts 🤔   Hugo  Written in go (which i have experience in) Fast (allegedly) At time of writing has 56k stars on github    Comment section solutions considered were:  Disqus  Seemed too shady Links with Github accounts   Cactus  Seemed cool Allows anonymous comments out of the box    Hosting solutions considered were:  Freetier aws + nginx  Free Probably handles traffic unless blog blows up   Some CDN (e.</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>https://akselallas.xyz/about/</link>
-      <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://akselallas.xyz/about/</guid>
-      <description>Aksel Allas Software Architecture Enthusiast
-Interests include Devops, SRE, Cyber Security, Engineering, Physics, Math, Programming and leading projects :)
-    Linkedin | github | pgp</description>
     </item>
     
   </channel>

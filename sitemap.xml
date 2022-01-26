@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://akselallas.xyz/tags/adrs/</loc>
+    <lastmod>2022-01-26T13:51:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akselallas.xyz/posts/</loc>
+    <lastmod>2022-01-26T13:51:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akselallas.xyz/tags/</loc>
+    <lastmod>2022-01-26T13:51:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://akselallas.xyz/posts/first-blog-post/</loc>
+    <lastmod>2022-01-26T13:51:15+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://akselallas.xyz/about/</loc>
     <lastmod>2022-01-16T00:00:00+00:00</lastmod>
   </url>
@@ -14,10 +34,6 @@
   
   <url>
     <loc>https://akselallas.xyz/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://akselallas.xyz/tags/</loc>
   </url>
   
 </urlset>
