@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Aksel Allas&#39; blog</title>
-    <link>https://akselallas.xyz/posts/</link>
-    <description>Aksel Allas&#39; blog (Posts)</description>
+    <title>geopolitics on Aksel Allas&#39; blog</title>
+    <link>https://akselallas.xyz/tags/geopolitics/</link>
+    <description>Aksel Allas&#39; blog (geopolitics)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Feb 2022 09:11:38 +0200</lastBuildDate>
     
-    <atom:link href="https://akselallas.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://akselallas.xyz/tags/geopolitics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -51,95 +51,6 @@
 &lt;p&gt;The Russian state has been lead from this mindset for centuries and as such this mindset is deeply rooted in Russian culture and the State&amp;rsquo;s institutions. And to me atleast, this explains why Russia is so allergic to Democracy and neighbouring &amp;ldquo;buffer countries&amp;rdquo; becoming more democratic.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;This is ofcourse an extreme simplification, but I believe it to &amp;ldquo;accurately enough&amp;rdquo; (80/20 principle in terms of details) capture the thought process behind the historical leaders of Russia. It&amp;rsquo;s important to remind ourselves that the Ivans, Peters and every Tsar, Emperor of Russia had to make choices the same way we need to make choices right now. Meaning that decisions are made on incomplete, simplified data along with time pressure and instability.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Technical considerations in starting this blog</title>
-      <link>https://akselallas.xyz/posts/first-blog-post/</link>
-      <pubDate>Wed, 26 Jan 2022 13:51:15 +0200</pubDate>
-      
-      <guid>https://akselallas.xyz/posts/first-blog-post/</guid>
-      <description>&lt;h3 id=&#34;places-for-writing-that-i-considered-were&#34;&gt;Places for writing that I considered were:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Jekyll
-&lt;ul&gt;
-&lt;li&gt;Found via this &lt;a href=&#34;https://news.ycombinator.com/item?id=30045959&#34;&gt;HN post&lt;/a&gt; (which also inspired me to start blogging)&lt;/li&gt;
-&lt;li&gt;I don&amp;rsquo;t have any experience with Ruby&lt;/li&gt;
-&lt;li&gt;At time of writing has &lt;a href=&#34;https://github.com/jekyll/jekyll&#34;&gt;44k stars on github&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Wordpress
-&lt;ul&gt;
-&lt;li&gt;Clunky and not customizable enough for me&lt;/li&gt;
-&lt;li&gt;My wife writes a &lt;a href=&#34;https://katiloog.home.blog/&#34;&gt;wordpress blog&lt;/a&gt; in estonian about books ;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Medium
-&lt;ul&gt;
-&lt;li&gt;Allows you to earn money by writing&lt;/li&gt;
-&lt;li&gt;Paywalls your posts 🤔&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Hugo
-&lt;ul&gt;
-&lt;li&gt;Written in go (which i have experience in)&lt;/li&gt;
-&lt;li&gt;Fast (allegedly)&lt;/li&gt;
-&lt;li&gt;At time of writing has &lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;56k stars on github&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;comment-section-solutions-considered-were&#34;&gt;Comment section solutions considered were:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Disqus
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://supunkavinda.blog/disqus&#34;&gt;Seemed too shady&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Links with Github accounts&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Cactus
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://cactus.chat/demo/&#34;&gt;Seemed cool&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Allows anonymous comments out of the box&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;hosting-solutions-considered-were&#34;&gt;Hosting solutions considered were:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Freetier aws + nginx
-&lt;ul&gt;
-&lt;li&gt;Free&lt;/li&gt;
-&lt;li&gt;Probably handles traffic unless blog blows up&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Some CDN (e.g aws Cloudfront)
-&lt;ul&gt;
-&lt;li&gt;Proper CDN solution&lt;/li&gt;
-&lt;li&gt;Good to get more experience with CDNs&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;choices&#34;&gt;Choices&lt;/h2&gt;
-&lt;p&gt;So at the end of the day I chose to go with Hugo, since it&amp;rsquo;s golang based, had good tutorials and is more popular that jekyll. So far I&amp;rsquo;m very happy with the experience. Hugo also has lots of &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;good themes to choose from.&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I opted for Cactus since it has less tracking and allows anonymous comments out of the box.
-&lt;br&gt;But for some reason, the quick start &lt;a href=&#34;https://gitlab.com/cactus-comments/cactus-appservice/-/issues/8&#34;&gt;didn&amp;rsquo;t work for me right out the gate.&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;And I decided to host this in a free-tier aws EC2 instance served by nginx, because a proper CDN solution seemed more complicated.
-Also I&amp;rsquo;m happy since I got more nginx experience.
-For example I hadn&amp;rsquo;t done &lt;a href=&#34;https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/&#34;&gt;proper Let&amp;rsquo;s Encrypt SSL before.&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://latest.cactus.chat/cactus.js&#34;&gt;&lt;/script&gt;
-&lt;link rel=&#34;stylesheet&#34; href=&#34;https://latest.cactus.chat/style.css&#34; type=&#34;text/css&#34;&gt;
-&lt;div id=&#34;comment-section&#34;&gt;&lt;/div&gt;
-&lt;script&gt;
-initComments({
-  node: document.getElementById(&#34;comment-section&#34;),
-  defaultHomeserverUrl: &#34;https://matrix.cactus.chat:8448&#34;,
-  serverName: &#34;cactus.chat&#34;,
-  siteName: &#34;akselallas&#34;,
-  commentSectionId: &#34;1&#34;
-})
-&lt;/script&gt;&lt;blockquote&gt;
 &lt;/blockquote&gt;
 </description>
     </item>

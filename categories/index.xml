@@ -3,11 +3,11 @@
   <channel>
     <title>Categories on Aksel Allas&#39; blog</title>
     <link>https://akselallas.xyz/categories/</link>
-    <description>Recent content in Categories on Aksel Allas&#39; blog</description>
+    <description>Aksel Allas&#39; blog (Categories)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://akselallas.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://akselallas.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

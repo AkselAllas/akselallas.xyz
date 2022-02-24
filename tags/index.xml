@@ -3,22 +3,13 @@
   <channel>
     <title>Tags on Aksel Allas&#39; blog</title>
     <link>https://akselallas.xyz/tags/</link>
-    <description>Recent content in Tags on Aksel Allas&#39; blog</description>
+    <description>Aksel Allas&#39; blog (Tags)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Jan 2022 13:51:15 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 24 Feb 2022 09:11:38 +0200</lastBuildDate>
     
-	<atom:link href="https://akselallas.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://akselallas.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>adrs</title>
-      <link>https://akselallas.xyz/tags/adrs/</link>
-      <pubDate>Wed, 26 Jan 2022 13:51:15 +0200</pubDate>
-      
-      <guid>https://akselallas.xyz/tags/adrs/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>

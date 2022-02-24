@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+
+<html lang="en-us" data-theme="">
+<head>
+    
+        
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+<title>Understanding why Russia is authoritarian and invaded Ukraine - Aksel Allas&#39; blog</title>
+
+<meta name="description" content="Today, on 24th of February 2022, Russia declared war on Ukraine.
+Russia isn&rsquo;t authoritarian just because. It is authoritarian, because authoritarianism has been useful for the state for centuries.
+I believe there exists a very useful simplified model (well articulated by Caspian Report) on why Russia is the way it is, which I present in this post.
+I urge everyone&rsquo;s discussion on Russia to stem from the main points discussed in the model instead of analyzing and discussing Russian propaganda e.">
+
+
+
+<link rel="icon" type="image/x-icon" href="https://akselallas.xyz/favicon.ico">
+<link rel="apple-touch-icon-precomposed" href="https://akselallas.xyz/favicon.png">
+
+<style>
+  body {
+    visibility: hidden;
+    opacity: 0;
+  }
+</style>
+
+<noscript>
+  <style>
+    body {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</noscript>
+
+
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <link rel="stylesheet" href="https://akselallas.xyz/css/style.min.9749f3b82d46a635bbdae1a8d7326549fb393cb5b95fbc0ae360ef3c4725083b.css" integrity="sha256-l0nzuC1GpjW72uGo1zJlSfs5PLW5X7wK42DvPEclCDs=">
+    
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+    
+    
+        
+    
+    
+
+    
+        <script src="https://akselallas.xyz/js/script.min.0ac446ff60cfd2037010e05589e719afdf147b05baf883558bf00ed7a5efb1dc.js" type="text/javascript" charset="utf-8" integrity="sha256-CsRG/2DP0gNwEOBViecZr98UewW6&#43;INVi/AO16Xvsdw="></script>
+    
+
+
+
+
+
+
+
+<meta property="og:title" content="Understanding why Russia is authoritarian and invaded Ukraine" />
+<meta property="og:description" content="Today, on 24th of February 2022, Russia declared war on Ukraine.
+Russia isn&rsquo;t authoritarian just because. It is authoritarian, because authoritarianism has been useful for the state for centuries.
+I believe there exists a very useful simplified model (well articulated by Caspian Report) on why Russia is the way it is, which I present in this post.
+I urge everyone&rsquo;s discussion on Russia to stem from the main points discussed in the model instead of analyzing and discussing Russian propaganda e." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://akselallas.xyz/posts/russia-geopolitics/" />
+<meta property="article:published_time" content="2022-02-24T09:11:38+02:00" />
+<meta property="article:modified_time" content="2022-02-24T09:11:38+02:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Understanding why Russia is authoritarian and invaded Ukraine"/>
+<meta name="twitter:description" content="Today, on 24th of February 2022, Russia declared war on Ukraine.
+Russia isn&rsquo;t authoritarian just because. It is authoritarian, because authoritarianism has been useful for the state for centuries.
+I believe there exists a very useful simplified model (well articulated by Caspian Report) on why Russia is the way it is, which I present in this post.
+I urge everyone&rsquo;s discussion on Russia to stem from the main points discussed in the model instead of analyzing and discussing Russian propaganda e."/>
+
+
+
+
+
+
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'G-PHEB8QE3BT', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+
+    
+</head>
+<body>
+    <a class="skip-main" href="#main">Skip to main content</a>
+    <div class="container">
+        <header class="common-header"> 
+            
+                <div class="header-top">
+    <h1 class="site-title">
+    <a href="/" style="font-weight:bold;">🧙 Aksel Allas' blog</a>
+</h1>
+
+    <ul class="social-icons">
+
+
+
+
+
+    
+
+
+
+    <button class="theme-switcher" style="cursor: pointer;">
+         
+    </button>
+
+
+<script>
+const STORAGE_KEY = 'user-color-scheme'
+const defaultTheme = "dark"
+
+let currentTheme
+let switchButton
+let autoDefinedScheme = window.matchMedia('(prefers-color-scheme: dark)')
+
+const autoChangeScheme = e => {
+    currentTheme = e.matches ? 'dark' : 'light'
+    document.documentElement.setAttribute('data-theme', currentTheme)
+    changeButtonText()
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    switchButton = document.querySelector('.theme-switcher')
+    currentTheme = detectCurrentScheme()
+    if (currentTheme == 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark')
+    }
+    if (currentTheme == 'auto') {
+        autoChangeScheme(autoDefinedScheme);
+        autoDefinedScheme.addListener(autoChangeScheme);
+    }
+
+    if (switchButton) {
+        changeButtonText()
+        switchButton.addEventListener('click', switchTheme, false)
+    }
+  
+    showContent()
+})
+
+function detectCurrentScheme() {
+    if (localStorage.getItem(STORAGE_KEY)) {
+        return localStorage.getItem(STORAGE_KEY)
+    } 
+    if (defaultTheme) {
+        return defaultTheme
+    } 
+    if (!window.matchMedia) {
+        return 'light'
+    } 
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark'
+    }
+    return 'light'
+}
+
+function changeButtonText(switchButton)
+{   
+    if (switchButton) {
+        switchButton.textContent = currentTheme == 'dark' ?  " " : " "
+    }
+}
+
+function switchTheme(e) {
+    if (currentTheme == 'dark') {
+        localStorage.setItem(STORAGE_KEY, 'light')
+        document.documentElement.setAttribute('data-theme', 'light')
+        currentTheme = 'light'
+    } else {
+        localStorage.setItem(STORAGE_KEY, 'dark')
+        document.documentElement.setAttribute('data-theme', 'dark')
+        currentTheme = 'dark'
+    }
+    changeButtonText()
+}
+
+function showContent() {
+    document.body.style.visibility = 'visible';
+    document.body.style.opacity = 1;
+}
+</script>
+   
+
+
+    <li>
+            <a href="https://akselallas.xyz/index.xml" title="RSS" rel="me">
+            <span class="inline-svg" >
+
+
+
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/></svg>
+
+</span>
+
+            </a>
+        </li>
+    
+
+</ul>
+
+</div>
+
+    <nav>
+        
+        
+        <a class="" href="https://akselallas.xyz/posts/" title="Posts">Posts</a>
+        
+        <a class="" href="https://akselallas.xyz/about/" title="About">About</a>
+        
+        <a class="" href="https://akselallas.xyz/tags/" title="Tags">Tags</a>
+        
+    </nav>
+
+
+
+
+
+            
+        </header>
+        <main id="main" tabindex="-1"> 
+            
+    
+
+    <article class="post h-entry">
+        <div class="post-header">
+            <header>
+                <h1 class="p-name post-title">Understanding why Russia is authoritarian and invaded Ukraine</h1>
+
+                
+            </header>
+        </div>
+        <div class="content e-content">
+            <p>Today, on 24th of February 2022, Russia declared war on Ukraine.</p>
+<p>Russia isn&rsquo;t authoritarian just because. It is authoritarian, because authoritarianism has been useful for the state for centuries.</p>
+<p>I believe there exists a very useful simplified model <a href="https://www.youtube.com/watch?v=HE6rSljTwdU">(well articulated by Caspian Report)</a> on why Russia is the way it is, which I present in this post.</p>
+<p>I urge everyone&rsquo;s discussion on Russia to stem from the main points discussed in the model instead of analyzing and discussing Russian propaganda e.g. &ldquo;It&rsquo;s so hypocritical that Russia says X while doing Y&rdquo;</p>
+<h1 id="the-gist-of-geopolitical-considerations-made-by-russian-leaders">The gist of geopolitical considerations made by Russian leaders</h1>
+<ul>
+<li>Russian heartland has no geopolitically useful mountains, rivers, oceans, swamps or deserts</li>
+<li>For centuries, Russia had endured <a href="https://en.wikipedia.org/wiki/List_of_wars_involving_Russia">invasion after invasion</a> (1200-1547 A.D)</li>
+<li>These centuries-long chaotic wars make Russian leaders seek a more stable alternative solution</li>
+</ul>
+<img src="./pics/2.png" width="400"/>
+<ul>
+<li>Russian leadership needs to focus on security and stability of it&rsquo;s people</li>
+<li>Therefore Ivan the Terrible (1547 A.D) starts the process of conquering bufferzones until Russia reaches a defensible landmark</li>
+<li>Over the centuries, this leads to Russia reaching these &ldquo;natural borders&rdquo;</li>
+</ul>
+<img src="./pics/3.png" width="400"/>
+<ul>
+<li>Note that Ukraine&rsquo;s borders are also part of these defensible landmarks.</li>
+<li>The main weakpoint is the European plane (historically exploited by Napoleon and Hitler)</li>
+<li>The strategy envisioned by Russian leaders to counteract the European plane&rsquo;s weakness is the possiblity of withdrawal into Backup areas behind the Ural mountains</li>
+</ul>
+<img src="./pics/4.png" width="400"/>
+<ul>
+<li>NB! These backup lands also need to be owned by Russia, because if Russia doesn&rsquo;t own this land, then the Russian heartland would have two geographic weakpoints where it could be attacked from.</li>
+<li>Now that Russia became owner of all of this land and more than <a href="https://www.bbc.com/news/magazine-29950844">190 ethnic groups</a>, these new people needed to be made loyal to Russia in order to maintain the State&rsquo;s security.</li>
+<li>To pacify the new people, Russia drastically centralized the government, implomented deportations, genocide and colonization.</li>
+<li>In addition Russia established a huge internal security &amp; intelligence network to control these regions. (Predecessor to KGB,GRU,FSB)</li>
+<li>Finally, due to constant internal instability, the constant war efforts help the leaders of Russia stay in power and unite the country</li>
+</ul>
+<p>In conclusion, Russia&rsquo;s leaders in the past and present see the need to stay authoritarian to maintain the stability and security of the state.</p>
+<p>The Russian state has been lead from this mindset for centuries and as such this mindset is deeply rooted in Russian culture and the State&rsquo;s institutions. And to me atleast, this explains why Russia is so allergic to Democracy and neighbouring &ldquo;buffer countries&rdquo; becoming more democratic.</p>
+<blockquote>
+<p>This is ofcourse an extreme simplification, but I believe it to &ldquo;accurately enough&rdquo; (80/20 principle in terms of details) capture the thought process behind the historical leaders of Russia. It&rsquo;s important to remind ourselves that the Ivans, Peters and every Tsar, Emperor of Russia had to make choices the same way we need to make choices right now. Meaning that decisions are made on incomplete, simplified data along with time pressure and instability.</p>
+</blockquote>
+
+        </div>
+        
+
+    
+
+
+<div class="post-info">
+    
+        <div class="post-date dt-published">2022-02-24</div>
+    
+
+    <a class="post-hidden-url u-url" href="https://akselallas.xyz/posts/russia-geopolitics/">https://akselallas.xyz/posts/russia-geopolitics/</a>
+    <a href="https://akselallas.xyz" class="p-name p-author post-hidden-author h-card" rel="me">Aksel Allas</a>
+
+
+    <div class="post-taxonomies">
+        
+            
+                <ul class="post-tags">
+                    
+                        
+                        <li><a href="https://akselallas.xyz/tags/geopolitics/">#geopolitics</a></li>
+                    
+                </ul>
+        
+    </div>
+</div>
+
+    </article>
+
+    
+        
+    <div class="pagination post-pagination">
+        <div class="left pagination-item disabled">
+            
+        </div>
+        <div class="right pagination-item ">
+            
+                <a href="/posts/first-blog-post/">Technical considerations in starting this blog</a>
+            
+        </div>
+    </div>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+
+        </main>
+        
+            <footer class="common-footer">
+    
+    
+
+    <div class="common-footer-bottom">
+        
+        </div> 
+
+    </div>
+
+    <p class="h-card vcard">
+
+    <a href=https://akselallas.xyz class="p-name u-url url fn" rel="me">Aksel Allas</a> 
+
+    
+
+    
+</p> 
+</footer>
+
+        
+    </div>
+</body>
+</html>
