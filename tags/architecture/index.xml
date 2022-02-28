@@ -6,10 +6,243 @@
     <description>Aksel Allas&#39; blog (architecture)</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Jan 2022 13:51:15 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 28 Feb 2022 13:32:59 +0200</lastBuildDate>
     
     <atom:link href="https://akselallas.xyz/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How many blog visitors can fit in an AWS free-tier EC2?</title>
+      <link>https://akselallas.xyz/posts/load-test-aws-free-tier-for-blog/</link>
+      <pubDate>Mon, 28 Feb 2022 13:32:59 +0200</pubDate>
+      
+      <guid>https://akselallas.xyz/posts/load-test-aws-free-tier-for-blog/</guid>
+      <description>&lt;p&gt;The goal of this blog post is to figure out how many concurrent visitors can my AWS free-tier blog handle.&lt;/p&gt;
+&lt;p&gt;I would also like to see how many requests per second that is 🤔&lt;/p&gt;
+&lt;h2 id=&#34;tech-stack&#34;&gt;Tech stack&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;aws free-tier EC2 instance of Ubuntu 20.04
+&lt;ul&gt;
+&lt;li&gt;t2.micro (1vCPU, 1GB of RAM)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;Hugo&lt;/a&gt; to generate static blog posts&lt;/li&gt;
+&lt;li&gt;NGINX to serve static blog posts&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/grafana/k6&#34;&gt;k6&lt;/a&gt; for load testing
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=5OgQuVAR14I&#34;&gt;YT intro on it&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;k6-load-test-script&#34;&gt;K6 load test script&lt;/h2&gt;
+&lt;p&gt;&lt;button class=&#34;accordion&#34; style=&#34;font-size: 18px; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, &#39;Noto Sans&#39;, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;&#34; onclick=&#34;
+var panel = document.getElementById(&#39;accordion-1&#39;);
+if (panel.style.display === &#39;block&#39;) {
+panel.style.display = &#39;none&#39;;
+} else {
+panel.style.display = &#39;block&#39;;
+}
+&#34;&gt;K6 emulates a virtual user who does the following:&lt;/p&gt;
+&lt;p&gt;*) Goes to my blog&amp;rsquo;s post 3 times &amp;amp; sleeps for 3-5 sec every time&lt;br&gt;
+*) Goes to blog&amp;rsquo;s tags page &amp;amp; sleeps for 3-5 sec&lt;br&gt;
+*) Goes to about page &amp;amp; sleeps&lt;br&gt;
+*) Goes to RSS page &amp;amp; sleeps&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;// Click to open/close full source //
+&lt;/button&gt;&lt;/p&gt;
+&lt;div class=&#34;panel&#34; id=&#34;accordion-1&#34; style=&#34;padding-right:0;&#34;&gt;
+  &lt;pre&gt;
+    &lt;code class=&#34;javascript&#34; style=&#34;font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, &#39;Noto Sans&#39;, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;&#34;&gt;let response = http.get(&#34;https://akselallas.xyz/posts/first-blog-post/&#34;);
+// check() returns false if any of the specified conditions fail
+let checkRes = check(response, {
+    &#34;status is 200&#34;: (r) =&gt; r.status === 200,
+    &#34;content is present&#34;: (r) =&gt; r.body.indexOf(&#34;Freetier aws + nginx&#34;) !== -1,
+});
+sleep(Math.random() * 3 + 2)
+&lt;pre&gt;&lt;code&gt;let response2 = http.get(&amp;quot;https://akselallas.xyz/posts/first-blog-post/&amp;quot;);
+// check() returns false if any of the specified conditions fail
+let checkRes2 = check(response2, {
+    &amp;quot;status is 200&amp;quot;: (r) =&amp;gt; r.status === 200,
+    &amp;quot;content is present&amp;quot;: (r) =&amp;gt; r.body.indexOf(&amp;quot;Freetier aws + nginx&amp;quot;) !== -1,
+});
+sleep(Math.random() * 3 + 2)
+
+let response3 = http.get(&amp;quot;https://akselallas.xyz/posts/first-blog-post/&amp;quot;);
+// check() returns false if any of the specified conditions fail
+let checkRes3 = check(response3, {
+    &amp;quot;status is 200&amp;quot;: (r) =&amp;gt; r.status === 200,
+    &amp;quot;content is present&amp;quot;: (r) =&amp;gt; r.body.indexOf(&amp;quot;Freetier aws + nginx&amp;quot;) !== -1,
+});
+sleep(Math.random() * 3 + 2)
+
+
+let response4 = http.get(&amp;quot;https://akselallas.xyz/tags/&amp;quot;);
+// check() returns false if any of the specified conditions fail
+let checkRes4 = check(response4, {
+    &amp;quot;status is 200&amp;quot;: (r) =&amp;gt; r.status === 200,
+    &amp;quot;content is present&amp;quot;: (r) =&amp;gt; r.body.indexOf(&amp;quot;Tags&amp;quot;) !== -1,
+});
+sleep(Math.random() * 3 + 2)
+
+
+let response5 = http.get(&amp;quot;https://akselallas.xyz/about/&amp;quot;);
+// check() returns false if any of the specified conditions fail
+let checkRes5 = check(response5, {
+    &amp;quot;status is 200&amp;quot;: (r) =&amp;gt; r.status === 200,
+    &amp;quot;content is present&amp;quot;: (r) =&amp;gt; r.body.indexOf(&amp;quot;Software Architecture Enthusiast&amp;quot;) !== -1,
+});
+sleep(Math.random() * 3 + 2)
+
+
+let response6 = http.get(&amp;quot;https://akselallas.xyz/index.xml&amp;quot;);
+// check() returns false if any of the specified conditions fail
+let checkRes6 = check(response6, {
+    &amp;quot;status is 200&amp;quot;: (r) =&amp;gt; r.status === 200,
+    &amp;quot;content is present&amp;quot;: (r) =&amp;gt; r.body.indexOf(&amp;quot;xmlns:atom&amp;quot;) !== -1,
+});
+sleep(Math.random() * 3 + 2)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;At first I ran the K6 script with 3000 users for 1 minute linearly ramping up to 3000 users, 10 minutes at 3000 and 1 minute ramping down&lt;/p&gt;
+&lt;p&gt;&lt;button class=&#34;accordion&#34; style=&#34;font-size: 18px; font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, &#39;Noto Sans&#39;, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;&#34; onclick=&#34;
+var panel = document.getElementById(&#39;accordion-2&#39;);
+if (panel.style.display === &#39;block&#39;) {
+panel.style.display = &#39;none&#39;;
+} else {
+panel.style.display = &#39;block&#39;;
+}
+&#34;&gt;
+// Click to see source for ramping up users &amp;amp; declaring acceptable thresholds //
+&lt;/button&gt;&lt;/p&gt;
+&lt;div class=&#34;panel&#34; id=&#34;accordion-2&#34; style=&#34;padding-right:0;&#34;&gt;
+  &lt;pre&gt;
+    &lt;code class=&#34;language-javascript&#34;&gt;export let options = {
+    stages: [
+        // Linearly ramp up from 1 to 3000 VUs during first minute
+        { target: 3000, duration: &#34;1m&#34; },
+        // Hold at 3000 VUs for the next 10 minutes
+        { target: 3000, duration: &#34;10m&#34; },
+        // Linearly ramp down from 3000 to 0 VUs over the last minute 
+        { target: 0, duration: &#34;1m&#34; }
+    ],
+    thresholds: {
+        // We want the 95th percentile of all HTTP request durations to be less than 500ms
+        &#34;http_req_duration&#34;: [&#34;p(95)&amp;lt500&#34;],
+        // Requests with the staticAsset tag should finish even faster
+        &#34;check_failure_rate&#34;: [
+            // Global failure rate should be less than 1%
+            &#34;rate&amp;lt0.01&#34;,
+            // Abort the test early if it climbs over 5%
+            { threshold: &#34;rate&amp;lt=0.05&#34;, abortOnFail: true },
+        ],
+    },
+};
+    &lt;/code&gt;
+  &lt;/pre&gt;
+&lt;/div&gt;
+&lt;style&gt;
+
+.div pre code {
+  font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, Arial, &#39;Noto Sans&#39;, sans-serif, &#39;Apple Color Emoji&#39;, &#39;Segoe UI Emoji&#39;, &#39;Segoe UI Symbol&#39;, &#39;Noto Color Emoji&#39;
+}
+
+.accordion {
+  display:block;
+  background-color: var(--pre-bg-color);
+  color: var(--font-color);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: var(--thead-bg-color);
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+&lt;/style&gt;
+&lt;script src=&#34;//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js&#34;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.highlightAll();&lt;/script&gt;
+&lt;h2 id=&#34;linux-sockets&#34;&gt;Linux sockets&lt;/h2&gt;
+&lt;p&gt;At ~1024 virtual users, I started getting this error in k6&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Request failed: dial tcp 54.74.184.145:443: socket: too many open files&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;At first I thought this is due to NGINX running out of file descriptors on my aws ubuntu server.&lt;/p&gt;
+&lt;p&gt;But for some reason, I already had 65536 as max open file descriptors set for &lt;code&gt;www-data&lt;/code&gt; nginx worker thread.&lt;/p&gt;
+&lt;img src=&#34;../pics/1.png&#34; width=&#34;800&#34;/&gt;
+&lt;p&gt;Instead, I was running out of file descriptors on my own laptop, which I used to run the load test on.&lt;/p&gt;
+&lt;p&gt;To fix this &lt;a href=&#34;https://k6.io/docs/misc/fine-tuning-os/&#34;&gt;i followed k6 suggestions&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;ulimit -n 5000&amp;quot; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;figuring-out-the-correct-constraining-factor&#34;&gt;Figuring out the correct constraining factor&lt;/h2&gt;
+&lt;p&gt;Then at ~1900 virtual users I started running into &lt;code&gt;Request Failed dial: i/o timeout&lt;/code&gt;, which &lt;a href=&#34;https://stackoverflow.com/questions/61984559/observing-more-dial-tcp-i-o-timeout-during-the-performance-test-execution-in&#34;&gt;allegedly just means we are hitting some sort of constraining factor&lt;/a&gt; (CPU/IO/Network on either EC2 or the machine where we make the load test calls)&lt;/p&gt;
+&lt;p&gt;Since the max CPU utilization for Cloudwatch metrics I had seen for EC2 was at 3.78%, I assumed it was due to my 4g bandwidth limit ~1MB/s.&lt;/p&gt;
+&lt;p&gt;To fix this I moved my load testing script to a VM with more network bandwidth.&lt;/p&gt;
+&lt;p&gt;My assumption turned out to be correct. As I managed to reach 3000 virtual users without errors&lt;/p&gt;
+&lt;h2 id=&#34;harmless-nginx-overload-errors&#34;&gt;&amp;ldquo;Harmless&amp;rdquo; NGINX overload errors&lt;/h2&gt;
+&lt;p&gt;After a minute of 3000 users, I started getting NGINX errors:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;could not allocate new session in SSL session shared cache &amp;quot;le_nginx_SSL&amp;quot; while SSL handshaking
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Seems that this message is &lt;a href=&#34;https://community.letsencrypt.org/t/could-not-allocate-new-session-in-ssl-session-shared-cache-le-nginx-ssl-while-ssl-handshaking/140244&#34;&gt;&amp;ldquo;harmless&amp;rdquo;&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It won&amp;rsquo;t cause errors for visitors. Instead, affected returning visitors would take a small efficiency penalty from not having SSL session resumption.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;3000-concurrent-users-results&#34;&gt;3000 concurrent users results&lt;/h2&gt;
+&lt;p&gt;During 3000 virtual users we had ~630 requests per second.&lt;/p&gt;
+&lt;p&gt;As we can see from the image below, we had an average waiting time of 1.11s, request duration of 3.28 ms and an error rate of 0.07% or 268 failed requests.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Note that the requests with errors do not end up in my nginx &lt;code&gt;error.log&lt;/code&gt; 🤔&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;For 630 requests per second, I would call it an acceptable result, but note the max value for http_req_blocked is 30.27s.&lt;/p&gt;
+&lt;img src=&#34;../pics/5.png&#34; width=&#34;800&#34;/&gt;
+&lt;blockquote&gt;
+&lt;p&gt;http_req_blocked consists of time spent blocked (waiting for a free TCP connection slot) before initiating the request.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;http_req_duration = http_req_sending + http_req_waiting + http_req_receiving&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://k6.io/docs/using-k6/metrics/&#34;&gt;More on metrics here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;From AWS Cloudwatch we see that CPU hit 100% utilization, which is not ideal and causes failed responses in addition to very long responses for some calls.&lt;/p&gt;
+&lt;img src=&#34;../pics/6.png&#34; width=&#34;600&#34;/&gt;
+&lt;h2 id=&#34;2000-concurrent-users-results&#34;&gt;2000 concurrent users results&lt;/h2&gt;
+&lt;p&gt;Only a single failed request, waiting time of 18.26ms + request duration of 2.81ms&lt;/p&gt;
+&lt;p&gt;That is ~420 requests per second and a CPU peak utilization of 91%&lt;/p&gt;
+&lt;p&gt;Note that max http_req_blocked is only 3.48s :)&lt;/p&gt;
+&lt;p&gt;This is what good performance looks like. ❤&lt;/p&gt;
+&lt;img src=&#34;../pics/8.png&#34; width=&#34;800&#34;/&gt;
+&lt;img src=&#34;../pics/7.png&#34; width=&#34;600&#34;/&gt;
+&lt;h2 id=&#34;3500-concurrent-users-results&#34;&gt;3500 concurrent users results&lt;/h2&gt;
+&lt;p&gt;Max http_req_blocked is 58.7s! 🥶&lt;/p&gt;
+&lt;p&gt;1.46% of all requests or 6300 requests failed. Rate is ~740 requests per second.&lt;/p&gt;
+&lt;p&gt;Definitely not good, but the server still survived atleast :)&lt;/p&gt;
+&lt;img src=&#34;../pics/9.png&#34; width=&#34;800&#34;/&gt;
+&lt;h2 id=&#34;is-this-enough-to-survive-a-hug-of-death&#34;&gt;Is this enough to survive a &amp;ldquo;hug of death&amp;rdquo;?&lt;/h2&gt;
+&lt;p&gt;The best data on what type of traffic to expect from let&amp;rsquo;s say front page of Hackernews I have seen is from &lt;a href=&#34;https://ounapuu.ee/posts/2022/02/09/hn-stats-analytics/&#34;&gt;this blog post analyzing it&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Herman from the blog named ~70k hits per day. If we consider 12 hours a workday and calculate 72000/12 that&amp;rsquo;s 6000 - which is ~1.67 req/s.&lt;/p&gt;
+&lt;p&gt;If we consider a spike of traffic at peak interest and expect 10x or 100x more traffic, we get 16,7 or 167 req/s, which is way below all of our stress tests.&lt;/p&gt;
+&lt;p&gt;As a result, I can conclude that my setup is performant enough, since we saw that a free-tier instance can handle roughly ~420 requests per second. 😎&lt;/p&gt;
+&lt;hr&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://latest.cactus.chat/cactus.js&#34;&gt;&lt;/script&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://latest.cactus.chat/style.css&#34; type=&#34;text/css&#34;&gt;
+&lt;div id=&#34;comment-section&#34;&gt;&lt;/div&gt;
+&lt;script&gt;
+initComments({
+  node: document.getElementById(&#34;comment-section&#34;),
+  defaultHomeserverUrl: &#34;https://matrix.cactus.chat:8448&#34;,
+  serverName: &#34;cactus.chat&#34;,
+  siteName: &#34;akselallas&#34;,
+  commentSectionId: &#34;2&#34;
+})
+&lt;/script&gt;
+</description>
+    </item>
     
     <item>
       <title>Technical considerations in starting this blog</title>
@@ -78,6 +311,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;choices&#34;&gt;Choices&lt;/h2&gt;
 &lt;p&gt;So at the end of the day I chose to go with Hugo, since it&amp;rsquo;s golang based, had good tutorials and is more popular that jekyll. So far I&amp;rsquo;m very happy with the experience. Hugo also has lots of &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;good themes to choose from.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For the theme I chose &lt;a href=&#34;https://github.com/Mitrichius/hugo-theme-anubis&#34;&gt;Anubis&lt;/a&gt; because of it&amp;rsquo;s minimalistic design + dark/light mode support &lt;a href=&#34;https://github.com/Mitrichius/hugo-theme-anubis/issues/139&#34;&gt;(which I helped improve a tad bit)&lt;/a&gt;. The maintainer has a fast response time :)&lt;/p&gt;
 &lt;p&gt;I opted for Cactus since it has less tracking and allows anonymous comments out of the box.
 &lt;br&gt;But for some reason, the quick start &lt;a href=&#34;https://gitlab.com/cactus-comments/cactus-appservice/-/issues/8&#34;&gt;didn&amp;rsquo;t work for me right out the gate.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;And I decided to host this in a free-tier aws EC2 instance served by nginx, because a proper CDN solution seemed more complicated.

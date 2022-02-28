@@ -78,6 +78,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;choices&#34;&gt;Choices&lt;/h2&gt;
 &lt;p&gt;So at the end of the day I chose to go with Hugo, since it&amp;rsquo;s golang based, had good tutorials and is more popular that jekyll. So far I&amp;rsquo;m very happy with the experience. Hugo also has lots of &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;good themes to choose from.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;For the theme I chose &lt;a href=&#34;https://github.com/Mitrichius/hugo-theme-anubis&#34;&gt;Anubis&lt;/a&gt; because of it&amp;rsquo;s minimalistic design + dark/light mode support &lt;a href=&#34;https://github.com/Mitrichius/hugo-theme-anubis/issues/139&#34;&gt;(which I helped improve a tad bit)&lt;/a&gt;. The maintainer has a fast response time :)&lt;/p&gt;
 &lt;p&gt;I opted for Cactus since it has less tracking and allows anonymous comments out of the box.
 &lt;br&gt;But for some reason, the quick start &lt;a href=&#34;https://gitlab.com/cactus-comments/cactus-appservice/-/issues/8&#34;&gt;didn&amp;rsquo;t work for me right out the gate.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;And I decided to host this in a free-tier aws EC2 instance served by nginx, because a proper CDN solution seemed more complicated.
